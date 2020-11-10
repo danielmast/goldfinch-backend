@@ -1,4 +1,4 @@
-package nl.danielmast.goldfinchbackend.profile
+package nl.danielmast.goldfinchbackend.user
 
 enum class Orientation {
     STRAIGHT, GAY, BI

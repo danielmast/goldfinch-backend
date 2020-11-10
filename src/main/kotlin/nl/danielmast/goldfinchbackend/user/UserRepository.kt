@@ -8,10 +8,10 @@ class UserRepository {
 
     companion object {
         private val users = mapOf(
-                1L to User(1L, "John"),
-                2L to User(2L, "Mary"),
-                3L to User(3L, "Leo"),
-                4L to User(4L, "Julia")
+                1L to User(1L, "John", Gender.MALE, Orientation.STRAIGHT, "Hi, I'm cool John"),
+                2L to User(2L, "Mary", Gender.FEMALE, Orientation.STRAIGHT, "Always happy"),
+                3L to User(3L, "Leo", Gender.MALE, Orientation.GAY, "Leo the lion!"),
+                4L to User(4L, "Julia", Gender.FEMALE, Orientation.BI, "I like everyone!")
         )
     }
 }
