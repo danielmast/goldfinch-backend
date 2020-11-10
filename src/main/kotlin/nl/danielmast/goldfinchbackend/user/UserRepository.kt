@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository
 class UserRepository {
     fun getUserById(id: Long): User? = users[id]
 
+    fun getUsers(): Collection<User> = users.values
+
     companion object {
         private val users = mapOf(
                 1L to User(1L, "John", Gender.MALE, Orientation.STRAIGHT, "Hi, I'm cool John"),
