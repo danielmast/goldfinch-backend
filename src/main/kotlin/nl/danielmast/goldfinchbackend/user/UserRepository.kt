@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository
 @Repository
 interface UserRepository : Neo4jRepository<User, Long> {
     fun findUserById(id: Long): User?
+
+    fun findUserByUsername(username: String): User?
 }

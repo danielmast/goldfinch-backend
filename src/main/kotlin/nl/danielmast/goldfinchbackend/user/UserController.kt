@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.*
 class UserController(private val userService: UserService) {
 
     @GetMapping("/users/{id}")
-    fun getUser(@PathVariable id: Long) = userService.getUserById(id)
+    fun getUserById(@PathVariable id: Long) = userService.getUserById(id)
+
+    @GetMapping("/users/username/{username}")
+    fun getUserByUsername(@PathVariable username: String) = userService.getUserByUsername(username)
 
     @GetMapping("/users")
     fun getUsers() = userService.getUsers()

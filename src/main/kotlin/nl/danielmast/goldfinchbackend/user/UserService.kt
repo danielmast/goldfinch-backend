@@ -7,15 +7,17 @@ import javax.annotation.PostConstruct
 class UserService(private val userRepository: UserRepository) {
     fun getUserById(id: Long): User? = userRepository.findUserById(id)
 
+    fun getUserByUsername(username: String): User? = userRepository.findUserByUsername(username)
+
     fun getUsers(): Iterable<User> = userRepository.findAll()
 
     @PostConstruct
     fun populateDatabase() {
         userRepository.deleteAll()
-        var john = User(null, "John", Gender.MALE, Orientation.STRAIGHT, "Hi, I'm cool John")
-        var mary = User(null, "Mary", Gender.FEMALE, Orientation.STRAIGHT, "Always happy")
-        var leo = User(null, "Leo", Gender.MALE, Orientation.GAY, "Leo the lion!")
-        var julia = User(null, "Julia", Gender.FEMALE, Orientation.BI, "I like everyone!")
+        val john = User(null, "john", "John", Gender.MALE, Orientation.STRAIGHT, "Hi, I'm cool John")
+        val mary = User(null, "mary", "Mary", Gender.FEMALE, Orientation.STRAIGHT, "Always happy")
+        val leo = User(null, "leo", "Leo", Gender.MALE, Orientation.GAY, "Leo the lion!")
+        val julia = User(null, "julia", "Julia", Gender.FEMALE, Orientation.BI, "I like everyone!")
         setOf(john, mary, leo, julia).forEach { userRepository.save(it) }
     }
 }
