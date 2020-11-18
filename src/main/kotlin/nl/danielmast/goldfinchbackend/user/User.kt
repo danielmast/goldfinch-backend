@@ -1,5 +1,6 @@
 package nl.danielmast.goldfinchbackend.user
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import org.neo4j.ogm.annotation.GeneratedValue
 import org.neo4j.ogm.annotation.Id
 import org.neo4j.ogm.annotation.NodeEntity
@@ -16,5 +17,6 @@ data class User(
 ) {
     constructor() : this(null, null, null, null, null, null)
 
+    @JsonIgnore
     @Relationship(type = "REVIEW") val reviews: MutableSet<Review> = mutableSetOf()
 }
