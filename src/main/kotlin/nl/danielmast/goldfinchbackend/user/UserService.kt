@@ -9,6 +9,8 @@ class UserService(private val userRepository: UserRepository) {
 
     fun getUserByUsername(username: String): User? = userRepository.findUserByUsername(username)
 
+    fun getMatchesOfUserById(id: Long): Collection<User> = userRepository.findMatchesOfUserById(id)
+
     fun getUsers(): Iterable<User> = userRepository.findAll()
 
     @PostConstruct
